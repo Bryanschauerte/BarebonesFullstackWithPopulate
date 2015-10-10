@@ -1,0 +1,67 @@
+<html ng-app = "bareApp">
+<head>
+  <title>messager</title>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+
+<body ng-controller = "mainCtrl">
+
+
+
+
+  <md-toolbar >
+  <h2 class="md-toolbar-tools">
+    <span>Message-Board</span>
+  </h2>
+</md-toolbar>
+<md-content layout-padding layout="row" layout-sm="row">
+
+<md-input-container>
+    <label>Name others will see</label>
+    <input ng-model="newUser._creator">
+  </md-input-container>
+
+  <md-input-container>
+      <label>Message</label>
+      <input ng-model="newUser.message">
+    </md-input-container>
+
+    <button class="z-depth-2 btn waves-effect waves-light" ng-click = "postMessage()">
+       <i class="material-icons right">Send message</i>
+     </button>
+</md-content>
+
+
+
+<md-content layout-padding>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="message in messages">
+      <div class="md-list-item-text">
+        <h3>{{message._creator.name}}</h3>
+        <h4>{{message.message}}</h4>
+      </div>
+      <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>
+
+
+
+  <script type = "text/javascript" src = "./app.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+  <!-- Angular Material Javascript now available via Google CDN; version 0.9.4 used here -->
+  <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+
+</body>
+
+</html>
